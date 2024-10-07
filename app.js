@@ -1,12 +1,14 @@
-// Importing Express
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const PORT = 3000;
 
 // Middleware to parse JSON requests
 app.use(express.json());
 
-// In-memory data storage (for demo purposes)
+// Enabling CORS for all origins
+app.use(cors());
+
 const users = [
   { id: 1, name: 'John Doe', email: 'john@example.com' },
   { id: 2, name: 'Jane Doe', email: 'jane@example.com' },
@@ -65,5 +67,5 @@ app.delete('/users/:id', (req, res) => {
 
 // Start the server
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(`Server is running on http://localhost:${PORT} 👍`);
 });
